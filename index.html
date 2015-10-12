@@ -21,6 +21,25 @@
 				'image' : 'images/jzoo.jpg'
 			}
 			$(document).ready(function() {
+				var viewport = $( window ).width();
+				if(viewport >= 700){
+					optionsAnimation['widthItem'] = 627;
+					optionsAnimation['widthImage'] = 6897;
+	                optionsAnimation['height'] = 390;
+	                optionsAnimation['image'] = 'images/jzoo.jpg';
+				} else {
+					optionsAnimation['widthItem'] = 500;
+					optionsAnimation['widthImage'] = 5500;
+	                optionsAnimation['height'] = 311;
+	                optionsAnimation['image'] = 'images/jzoo500.jpg';
+				}
+
+				if (viewport < 700){
+					var marginLeft = -(500-viewport)/2;
+					alert(500-viewport);
+					$('#animation').css({marginLeft:marginLeft+"px"})
+				}
+					
 				$('#animation').jzoopraxiscope(optionsAnimation);
 				$('#play').click(function() {
 					$('#animation').jzoopraxiscope('play');
@@ -50,7 +69,7 @@
 	</head>
 	<body style="">
 		<header>
-			<a href=""><img src="images/logo.png" alt="JZoopraxiscope"/></a>
+			<a href="http://cobalys.github.io/JZoopraxiscope/"><img id="logo" src="images/logo.png" alt="JZoopraxiscope"/></a>
 			<!--a href="">Download</a>
 			<a href="">License</a-->
 		</header>
@@ -65,7 +84,7 @@
 			<p id="description">
 				JZoopraxiscope is a jQuery plugin for making animations from static images inspired in Eadweard Muybridge's Zoopraxiscope.
 			</p>
-			<div style="margin: auto;width:580px;text-align: center;padding: 40px;">
+			<div style="margin: auto;width:80%;text-align: center;padding-top: 40px;padding-bottom: 40px;">
 				<a href="https://github.com/downloads/cobalys/JZoopraxiscope/JZoopraxiscope_1.2.zip" class="button big">Download</a>
 				<a href="https://github.com/cobalys/JZoopraxiscope" class="button big">Fork Me</a>
 			</div>
@@ -74,7 +93,7 @@
 			<div class="footer">
 				<p>
 					<a href="http://cobalys.com">Cobalys</a> 2012.
-					JZoopraxiscope is licenced under the terms of the <a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">GPLv3</a> and the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>.
+					JZoopraxiscope is licensed under the terms of the <a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">GPLv3</a> and the <a href="http://www.opensource.org/licenses/MIT">MIT License</a>.
 				</p>
 				<p>
 					Image jzoo.jpg belongs to the Eadweard Muybridge Collection (Public Domain).
@@ -83,17 +102,10 @@
 					Hosted by <a href="http://pages.github.com/">Github Pages</a>.
 				</p>
 				<div style="width: 435px; padding-left: 0px; float: right; margin-top: 30px;">
-					<div style="float: left; width: 154px;">
-						<a href="http://cobalys.com/" > <img alt="Developed by Cobalys" id="cobalys-footer" src="images/cobalys-logo.png" /> </a>
-					</div>
-					<div style="float: right;border-left: 1px solid rgb(255, 255, 255); height: 58px; padding-left: 9px;text-align: justify;width: 258px;line-height: 13px;">
-						Cobalys is a web development company specialized in the development of Django applications and jQuery dynamic interfaces.
-						<p style="margin-top:6px;">
-							<a href="http://cobalys.com/" >website</a> | <a href="https://github.com/cobalys" >github</a> | <a href="http://twitter.com/cobalys" >twitter</a>
-						</p>
-					</div>
+						<a href="http://cobalys.com/" > <img alt="Developed by Cobalys" id="cobalys-footer"  style="width: 120px;" src="images/cobalys-logo.png" /> </a>
 				</div>
 				<br style="clear: both" />
+			</div>
 		</footer>
 	</body>
 </html>
